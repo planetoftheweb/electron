@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Wisdom Pet Medicine</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-info">
+  <main class="info-content">
+      <button type="button" class="close pull-left">&times;</button>
+      <p><img src="images/wisdompetlogo.svg" alt="Wisdom Pet Logo"></p>
+      <h3 class="page-headline">Wisdom Pet</h3>
+      <p>Welcome to the Wisdom Pet App.<br>
+        <strong>Version 1.0.0</strong><br>
+      <small>Built with love by <a href="#" onclick="electron.shell.openExternal('http://raybo.org')" class="goHome">Ray Villalobos</a></small></p>
+  </main>
+</body>
+
+<script>
+var electron = require('electron');
+var ipc = electron.ipcRenderer;
+var closeWindow = document.querySelector('.close');
+
+  closeWindow.addEventListener('click', function () {
+    const reply = ipc.sendSync('closeInfoWindow')
+  });
+
+</script>
+</html>

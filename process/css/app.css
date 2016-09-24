@@ -1,0 +1,254 @@
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.css');
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  background-image: url("../images/wisdompetlogo.svg");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: 10px;
+}
+
+@media only screen
+  and (max-width: 768px) {
+  .navbar-header {
+    display: none;
+  }
+  .navbar {
+    background-image: none;
+  }
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+  padding-left: 60px;
+}
+
+.navbar-default {
+  background-color: #194759;
+  border: none;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-form {
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-form .form-control {
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.navbar-form .btn-info {
+  background-color: #3E8C84;
+  border-color: #2B746B;
+}
+
+.navbar-form .btn-info:focus,
+.navbar-form .btn-info.focus {
+  background-color: #2B746B;
+  border-color: #286D64;
+}
+
+.main {
+  background: white;
+}
+
+/** Toolbar **/
+
+.interface {
+  display: flex;
+  background: #D8F2F0;
+}
+
+.toolbar {
+  background-color: #296B73;
+  min-width: 200px;
+  color: white;
+  font-size: 1.1em;
+  height: 100vh;
+  padding-top: 10px;
+}
+
+@media only screen
+  and (max-width: 768px) {
+  .toolbar {
+    min-width: 55px;
+  }
+
+}
+
+.toolbar-item {
+  cursor: pointer;
+  padding: 10px 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.toolbar-item:hover {
+  background-color: #133748;
+}
+
+.toolbar-item-button {
+  margin-right:10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .toolbar-item-text {
+    display: none;
+  }
+
+  .toolbar-item-button {
+    font-size: 20px;
+  }
+}
+
+/**  Interface Styles **/
+
+.toolbar-addheading {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;          /* Likely future */
+}
+
+.appointments {
+  margin-top: 15px;
+}
+
+.appointments .appointments-headline {
+  margin-bottom: 10px;
+  color: #174152;
+}
+
+.item-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+
+.item-list .media {
+  margin-top: 0;
+}
+
+.item-list .pet-item {
+  padding: 10px;
+}
+
+.item-list .pet-item:nth-child(2n) {
+    background: rgba(255,255,255,.5);
+    border-radius: 5px;
+}
+
+.item-list .pet-item:last-child {
+  border-bottom: none;
+}
+
+.item-list .pet-item .pet-delete {
+  display: none;
+  opacity: 0;
+  transition: all 1s;
+}
+
+
+.item-list  .pet-item:hover .pet-delete {
+  display: block;
+  opacity: 1;
+}
+
+
+.item-list .pet-name {
+  font-weight: bold;
+  color: #296B73;
+  font-size: 1.3em;
+}
+.item-list .apt-notes {
+  font-style: italic;
+}
+
+.item-list .label-item {
+  font-weight: bold;
+  color: #D03B3B;
+  padding-right: 10px;
+}
+
+.item-list .apt-date {
+  font-style: italic;
+}
+
+#page-info {
+  background: transparent;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+#page-info a:link {
+  color: #EEC856;
+}
+
+#page-info .info-content {
+  background: linear-gradient( 180deg,
+    rgba(234, 192, 59, .75),
+    rgba(24, 101, 85, .95));
+  width: 90%;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  align-self: center;
+  border: 2px solid rgba(24, 101, 85, .95);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, .4);
+}
+
+#page-info .page-headline {
+  font-size: 1.8em;
+  color: #EEC856;
+}
+
+#page-info .close {
+  background: rgba(255,255,255,1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid #1F7668;
+  font-size: 1em;
+  padding: 0;
+  position: relative;
+  left: -30px;
+  top: -30px;
+  z-index: 20;
+}
+
+#page-info .close:focus, #page-info .close:hover {
+  outline: none;
+}
+
+
+#page-info img {
+  width: 100px;
+  opacity: .8;
+}
