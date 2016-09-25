@@ -9,23 +9,11 @@
 </head>
 <body id="page-info">
   <main class="info-content">
-      <button type="button" class="close pull-left">&times;</button>
       <p><img src="images/wisdompetlogo.svg" alt="Wisdom Pet Logo"></p>
       <h3 class="page-headline">Wisdom Pet</h3>
       <p>Welcome to the Wisdom Pet App.<br>
         <strong>Version 1.0.0</strong><br>
-      <small>Built with love by <a href="#" onclick="electron.shell.openExternal('http://raybo.org')" class="goHome">Ray Villalobos</a></small></p>
+      <small>Built with love by <a href="#" class="goHome">Ray Villalobos</a></small></p>
   </main>
 </body>
-
-<script>
-var electron = require('electron');
-var ipc = electron.ipcRenderer;
-var closeWindow = document.querySelector('.close');
-
-  closeWindow.addEventListener('click', function () {
-    const reply = ipc.sendSync('closeInfoWindow')
-  });
-
-</script>
 </html>
