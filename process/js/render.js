@@ -13,7 +13,7 @@ var HeaderNav = require('./HeaderNav');
 var AptList = require('./AptList');
 var AddAppointment = require('./AddAppointment');
 var Toolbar = require('./Toolbar');
-var loadApts = JSON.parse(fs.readFileSync(dirName + '/../data/data.json'));
+var loadApts = JSON.parse(fs.readFileSync(dataLocation));
 
 var MainInterface = React.createClass({
   getInitialState: function() {
@@ -40,7 +40,7 @@ var MainInterface = React.createClass({
   },
 
   componentDidUpdate: function() {
-   fs.writeFile(dirName + '/../data/data.json', JSON.stringify(this.state.myAppointments), 'utf8', function(err) {
+   fs.writeFile(dataLocation, JSON.stringify(this.state.myAppointments), 'utf8', function(err) {
       if (err) {
         console.log(err);
       }
