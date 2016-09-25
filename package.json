@@ -1,0 +1,7 @@
+{
+  "name": "ElectronApp",
+  "version": "1.0.0",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  }
+}
