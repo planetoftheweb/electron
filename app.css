@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#page-info {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: transparent;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+#page-info a:link {
+  color: #EEC856;
+}
+
+#page-info .info-content {
+  background: linear-gradient( 180deg,
+    rgba(234, 192, 59, .75),
+    rgba(24, 101, 85, .95));
+  width: 90%;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  align-self: center;
+  border: 2px solid rgba(24, 101, 85, .95);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, .4);
+  overflow:hidden;
+}
+
+#page-info .page-headline {
+  font-size: 1.8em;
+  margin: 0;
+  padding: 0;
+  color: #EEC856;
+}
+
+#page-info img {
+  width: 100px;
+  opacity: .8;
+}
