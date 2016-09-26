@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Wisdom Pet Medicine</title>
   <link rel="stylesheet" href="app.css">
+  <script type="text/javascript">
+    var electron = require('electron');
+    var shell = electron.shell;
+    var ipc = electron.ipcRenderer;
+  </script>
 </head>
 <body id="page-info">
   <main class="info-content">
@@ -13,8 +18,9 @@
     <p>
       Welcome to the Wisdom Pet App.<br>
       <strong>Version 1.0.0</strong><br>
-      <small>Built with love by <a href="http://raybo.org">Ray Villalobos</a></small>
+      <small>Built with love by <a href="#" onclick="shell.openExternal('http://raybo.org')">Ray Villalobos</a></small>
     </p>
+    <p><a href="#" onclick="ipc.sendSync('closeInfoWindow')">close window</a></p>
   </main>
 </body>
 </html>

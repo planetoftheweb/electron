@@ -1,13 +1,14 @@
 var electron = require('electron');
 var BrowserWindow = electron.BrowserWindow;
 var app = electron.app;
-
+var ipc = electron.ipcMain;
 
 app.on('ready', function() {
   var appWindow, infoWindow;
   appWindow = new BrowserWindow({
     show: false
-  });
+  }); //appWindow
+
   appWindow.loadURL('http://raybo.org');
 
   infoWindow = new BrowserWindow({
@@ -16,7 +17,7 @@ app.on('ready', function() {
     transparent: true,
     show: false,
     frame: false
-  });
+  }); //infoWindow
 
   infoWindow.loadURL('file://' + __dirname + '/info.html');
 
@@ -24,7 +25,12 @@ app.on('ready', function() {
     appWindow.show();
     setTimeout(function() {
       infoWindow.show();
-      setTimeout(function() { infoWindow.hide();}, 3000);
+      //setTimeout(function() { infoWindow.hide();}, 3000);
     }, 1000);
-  });
-});
+  }); //ready-to-show
+
+  ipc.on('closeInfoWindow', function(event, arg){
+    event.returnValue='';
+    infoWindow.hide();
+  }); //closeInfoWindow
+}); //app is ready
