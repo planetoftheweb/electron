@@ -9,7 +9,7 @@ app.on('ready', function() {
     show: false
   }); //appWindow
 
-  appWindow.loadURL('http://raybo.org');
+  appWindow.loadURL('file://' + __dirname + '/index.html');
 
   infoWindow = new BrowserWindow({
     width: 400,
