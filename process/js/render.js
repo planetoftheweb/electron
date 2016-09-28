@@ -1,6 +1,18 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 var $ = jQuery = require('jquery');
 var bootstrap = require('bootstrap');
 
-$(function() {
-  $('#petAppointments').append('<h3 class="text-success">Wisdom Pet App Loaded</h3>');
-});
+var MainInterface = React.createClass({
+  render: function() {
+    return(
+      <h1>Wisdom Pet Application</h1>
+    );
+  } //render
+});//MainInterface
+
+ReactDOM.render(
+  <MainInterface />,
+  document.getElementById('petAppointments')
+); //render
