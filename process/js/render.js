@@ -10,7 +10,7 @@ var ipc = electron.ipcRenderer;
 var React = require('react');
 var ReactDOM = require('react-dom');
 var AptList = require('./AptList');
-var Toolbar = require('./Toobar');
+var Toolbar = require('./Toolbar');
 
 var MainInterface = React.createClass({
   getInitialState: function() {

@@ -7,7 +7,7 @@ var Toolbar = React.createClass({
   render: function() {
     return(
       <div className="toolbar">
-        <div className="toolbar-item" onClick=" this.toggleAbout">
+        <div className="toolbar-item" onClick={this.toggleAbout}>
           <span className="toolbar-item-button glyphicon glyphicon-question-sign"></span>
           <span className="toolbar-item-text">About this app</span>
         </div>
