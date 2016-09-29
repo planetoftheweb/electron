@@ -16,6 +16,14 @@ var MainInterface = React.createClass({
     }//return
   }, //getInitialState
 
+  componentDidUpdate: function() {
+    fs.writeFile(dataLocation, JSON.stringify(this.state.myAppointments), 'utf8', function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });//writeFile
+  }, //componentDidUpdate
+
   deleteMessage: function(item) {
     var allApts = this.state.myAppointments;
     var newApts = _.without(allApts, item);
