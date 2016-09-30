@@ -11,10 +11,12 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var AptList = require('./AptList');
 var Toolbar = require('./Toolbar');
+var AddAppointment = require('./AddAppointment');
 
 var MainInterface = React.createClass({
   getInitialState: function() {
     return {
+      aptBodyVisible: false,
       myAppointments: loadApts
     }//return
   }, //getInitialState
@@ -27,9 +29,16 @@ var MainInterface = React.createClass({
     });//writeFile
   }, //componentDidUpdate
 
+  toggleAddDisplay: function() {
+    var tempVisibility = !this.state.aptBodyVisible;
+    this.setState({
+      aptBodyVisible: tempVisibility
+    }); //setState
+  }, //toggleAptDisplay
+
   showAbout:function() {
     ipc.sendSync('openInfoWindow');
-  },
+  }, //showAbout
 
   deleteMessage: function(item) {
     var allApts = this.state.myAppointments;
@@ -41,6 +50,12 @@ var MainInterface = React.createClass({
 
   render: function() {
     var myAppointments = this.state.myAppointments;
+
+    if(this.state.aptBodyVisible === true) {
+      $('#addAppointment').modal('show');
+    } else {
+      $('#addAppointment').modal('hide');
+    }
 
     myAppointments=myAppointments.map(function(item, index) {
       return(
@@ -55,7 +70,11 @@ var MainInterface = React.createClass({
       <div className="application">
         <div className="interface">
           <Toolbar
+            handleToggle = {this.toggleAddDisplay}
             handleAbout = {this.showAbout}
+          />
+          <AddAppointment
+            hangleToggle = {this.toggleAptDisplay}
           />
           <div className="container">
            <div className="row">
