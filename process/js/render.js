@@ -29,7 +29,7 @@ var MainInterface = React.createClass({
     });//writeFile
   }, //componentDidUpdate
 
-  toggleAddDisplay: function() {
+  toggleAptDisplay: function() {
     var tempVisibility = !this.state.aptBodyVisible;
     this.setState({
       aptBodyVisible: tempVisibility
@@ -70,11 +70,11 @@ var MainInterface = React.createClass({
       <div className="application">
         <div className="interface">
           <Toolbar
-            handleToggle = {this.toggleAddDisplay}
+            handleToggle = {this.toggleAptDisplay}
             handleAbout = {this.showAbout}
           />
           <AddAppointment
-            hangleToggle = {this.toggleAptDisplay}
+            handleToggle = {this.toggleAptDisplay}
           />
           <div className="container">
            <div className="row">
