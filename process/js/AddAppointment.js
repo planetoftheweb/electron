@@ -1,5 +1,20 @@
 var React = require('react');
 
+var defaultDate = new Date();
+defaultDate.setDate(defaultDate.getDate() + 14);
+
+function formatDate(date, divider) {
+  var someday = new Date(date);
+  var month = someday.getUTCMonth() + 1;
+  var day = someday.getUTCDate();
+  var year = someday.getUTCFullYear();
+
+  if (month <= 9) { month = '0' + month; }
+  if (day <= 9) { day = '0' + day; }
+
+  return ('' + year + divider + month + divider + day);
+}
+
 var AddAppointment = React.createClass({
 
   toggleAptDisplay: function() {
@@ -16,6 +31,13 @@ var AddAppointment = React.createClass({
     } //tempitems
 
     this.props.addApt(tempItem);
+
+    this.inputPetName.value = '';
+    this.inputPetOwner.value = '';
+    this.inputAptDate.value = formatDate(defaultDate, '-');
+    this.inputAptTime.value = '09:00';
+    this.inputAptNotes.value = '';
+    
   }, //handleAdd
 
   render: function() {
@@ -47,14 +69,15 @@ var AddAppointment = React.createClass({
                 <label className="col-sm-3 control-label" htmlFor="aptDate">Date</label>
                 <div className="col-sm-9">
                   <input type="date" className="form-control"
-                    id="aptDate"  ref={(ref) => this.inputAptDate = ref } />
+                    id="aptDate"  ref={(ref) => this.inputAptDate = ref }
+                    defaultValue={formatDate(defaultDate, '-')} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="col-sm-3 control-label" htmlFor="aptTime">Time</label>
                 <div className="col-sm-9">
                   <input type="time" className="form-control"
-                    id="aptTime"  ref={(ref) => this.inputAptTime = ref } />
+                    id="aptTime"  ref={(ref) => this.inputAptTime = ref } defaultValue={'09:00'} />
                 </div>
               </div>
               <div className="form-group">
