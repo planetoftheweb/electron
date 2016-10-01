@@ -11,12 +11,14 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var AptList = require('./AptList');
 var Toolbar = require('./Toolbar');
+var HandleSearch = require('./HandleSearch');
 var AddAppointment = require('./AddAppointment');
 
 var MainInterface = React.createClass({
   getInitialState: function() {
     return {
       aptBodyVisible: false,
+      queryText: '',
       myAppointments: loadApts
     }//return
   }, //getInitialState
@@ -57,7 +59,15 @@ var MainInterface = React.createClass({
     }); //setState
   }, //deleteMessage
 
+  searchApts: function(query) {
+    this.setState({
+      queryText: query
+    }); //setState
+  }, //searchApts
+
   render: function() {
+    var filteredApts = [];
+    var queryText = this.state.queryText;
     var myAppointments = this.state.myAppointments;
 
     if(this.state.aptBodyVisible === true) {
@@ -66,7 +76,18 @@ var MainInterface = React.createClass({
       $('#addAppointment').modal('hide');
     }
 
-    myAppointments=myAppointments.map(function(item, index) {
+    for (var i = 0; i < myAppointments.length; i++) {
+      if (
+        (myAppointments[i].petName.toLowerCase().indexOf(queryText)!=-1) ||
+        (myAppointments[i].ownerName.toLowerCase().indexOf(queryText)!=-1) ||
+        (myAppointments[i].aptDate.toLowerCase().indexOf(queryText)!=-1) ||
+        (myAppointments[i].aptNotes.toLowerCase().indexOf(queryText)!=-1)
+      ) {
+        filteredApts.push(myAppointments[i]);
+      }
+    }
+
+    filteredApts=filteredApts.map(function(item, index) {
       return(
         <AptList key = {index}
           singleItem = {item}
@@ -77,6 +98,9 @@ var MainInterface = React.createClass({
     }.bind(this)); //Appointments.map
     return(
       <div className="application">
+        <HeaderNav
+          onSearch= {this.searchApts}
+        />
         <div className="interface">
           <Toolbar
             handleToggle = {this.toggleAptDisplay}
@@ -90,7 +114,7 @@ var MainInterface = React.createClass({
            <div className="row">
              <div className="appointments col-sm-12">
                <h2 className="appointments-headline">Current Appointments</h2>
-               <ul className="item-list media-list">{myAppointments}</ul>
+               <ul className="item-list media-list">{filteredApts}</ul>
              </div>{/* col-sm-12 */}
            </div>{/* row */}
           </div>{/* container */}
