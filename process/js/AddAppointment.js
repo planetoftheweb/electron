@@ -10,7 +10,7 @@ var AddAppointment = React.createClass({
     e.preventDefault();
     var tempItem = {
       petName: this.inputPetName.value,
-      ownerName: this.inputOwnerName.value,
+      ownerName: this.inputPetOwner.value,
       aptDate: this.inputAptDate.value + ' ' + this.inputAptTime.value,
       aptNotes: this.inputAptNotes.value,
     } //tempitems
