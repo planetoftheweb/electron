@@ -11,7 +11,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var AptList = require('./AptList');
 var Toolbar = require('./Toolbar');
-var HandleSearch = require('./HandleSearch');
+var HeaderNav = require('./HeaderNav');
 var AddAppointment = require('./AddAppointment');
 
 var MainInterface = React.createClass({
