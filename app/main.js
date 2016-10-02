@@ -42,6 +42,12 @@ app.on('ready', function() {
       label: 'Wisdom Pet',
       submenu: [
         {
+          label: 'Add Appointment',
+          accelerator: process.platform === 'darwin' ? 'Command+N':'Ctrl+N',
+          click(item,focusedWindow) {
+            if (focusedWindow) focusedWindow.webContents.send('addAppointment');
+          }
+        },{
           role: 'help',
           label: 'Our Website',
           click() { electron.shell.openExternal('http://raybo.org')}
@@ -59,7 +65,31 @@ app.on('ready', function() {
         {role: 'paste'},
         {role: 'selectall'}
       ]
-    }
+    },{
+        label: 'View',
+        submenu: [
+          {
+            label: 'Reload',
+            accelerator: 'CmdOrCtrl+R',
+            click (item, focusedWindow) {
+              if (focusedWindow) focusedWindow.reload()
+            }
+          },
+          {
+            label: 'Toggle Developer Tools',
+            accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+            click (item, focusedWindow) {
+              if (focusedWindow) focusedWindow.webContents.toggleDevTools()
+            }
+          },
+          {type: 'separator'},
+          {role: 'resetzoom'},
+          {role: 'zoomin'},
+          {role: 'zoomout'},
+          {type: 'separator'},
+          {role: 'togglefullscreen'}
+        ]
+      },
   ];
 
   myAppMenu = Menu.buildFromTemplate(menuTemplate);
