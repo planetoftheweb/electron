@@ -3,7 +3,7 @@ var React = require('react');
 var HeaderNav = React.createClass({
 
   handleSort: function(e) {
-    this.props.onReOrder(e.target.id, this.prop.orderDir);
+    this.props.onReOrder(e.target.id, this.props.orderDir);
   }, //handleSort
 
   handleOrder: function(e) {
