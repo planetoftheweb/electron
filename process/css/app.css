@@ -203,7 +203,6 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   height: 100vh;
   -webkit-app-region: drag;
-  -webkit-user-select: none;
   cursor: pointer;
 }
 
