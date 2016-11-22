@@ -1,7 +1,7 @@
 # Electron: Building Cross Platform Desktop Apps
 [![Electron: Building Cross Platform Desktop Apps](hero.jpg)](https://www.lynda.com/Electron-tutorials/Electron-Building-Cross-Platform-Desktop-Apps/518051-2.html)
 
-This is the repository for my course: [https://www.lynda.com/Electron-tutorials/Electron-Building-Cross-Platform-Desktop-Apps/518051-2.html](https://www.lynda.com/Electron-tutorials/Electron-Building-Cross-Platform-Desktop-Apps/518051-2.html). You can watch the full course at Lynda.com.
+This is the repository for my course: [Electron: Building Cross Platform Desktop Apps](https://www.lynda.com/Electron-tutorials/Electron-Building-Cross-Platform-Desktop-Apps/518051-2.html). You can watch the full course at Lynda.com.
 
 Electron is an open-source framework for creating desktop applications with your favorite web technologies: JavaScript, HTML, and CSS. It makes it easy to create a simple app with a few lines of code, using languages you already know. Want to learn more? Join Ray Villalobos as he walks through the techniques you need to master cross-platform desktop development with Electron. Learn how to configure and communicate between app windows (aka webpages) via the main and renderer processes, and integrate the React and Bootstrap frameworks to build interfaces with multiple panels and custom menus. As a final step, Ray shows how to package your project into a standalone, clickable app that can be run on Windows, Mac, or Linux machines.
 
